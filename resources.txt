@@ -4,6 +4,7 @@
 hibernate
 https://docs.jboss.org/hibernate/orm/current/quickstart/html_single/
 https://www.youtube.com/watch?v=jk5PWO6fNuo&t=3005s
+https://stackoverflow.com/questions/25684785/how-to-read-database-configuration-parameter-using-properties-file-in-hibernate
 
 intellij
 https://stackoverflow.com/questions/1051640/correct-way-to-add-external-jars-lib-jar-to-an-intellij-idea-project

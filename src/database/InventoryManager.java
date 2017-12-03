@@ -1,32 +1,52 @@
 package database;
 
+import java.io.FileInputStream;
 import java.util.List;
+import java.util.Properties;
 
-import org.hibernate.Session;
 import org.hibernate.SessionFactory;
-import org.hibernate.boot.MetadataSources;
-import org.hibernate.boot.registry.StandardServiceRegistry;
+//import org.hibernate.boot.MetadataSources;
+//import org.hibernate.boot.registry.StandardServiceRegistry;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
+import org.hibernate.Session;
+import org.hibernate.cfg.Configuration;
 import org.hibernate.query.Query;
+import org.hibernate.service.ServiceRegistry;
 
 public class InventoryManager {
 
-    protected SessionFactory sessionFactory;
+    private SessionFactory sessionFactory;
 
     // https://docs.jboss.org/hibernate/orm/current/quickstart/html_single/
     // took code from example 4 in link above
     public void setUp() throws Exception {
-        // A SessionFactory is set up once for an application!
-        final StandardServiceRegistry registry = new StandardServiceRegistryBuilder()
-                .configure("hibernate.config.xml") // configures settings from hibernate.cfg.xml
-                .build();
+        // first load the env variables and set them into the hibernate config file
+        Properties properties = new Properties();
+        Configuration configuration = new Configuration();
 
         try {
-            sessionFactory = new MetadataSources(registry).buildMetadata().buildSessionFactory();
+            properties.load(new FileInputStream("src/hibernate.properties"));
+        }catch(Exception e) {
+            e.printStackTrace();
+            throw new Exception(e);
+        }
+
+        configuration.configure("hibernate.config.xml");
+        configuration.setProperty("hibernate.connection.driver_class", properties.getProperty("hibernate.connection.driver_class"));
+        configuration.setProperty("hibernate.connection.url", properties.getProperty("hibernate.connection.url"));
+        configuration.setProperty("hibernate.connection.username", properties.getProperty("hibernate.connection.username"));
+        configuration.setProperty("hibernate.connection.password", properties.getProperty("hibernate.connection.password"));
+
+        // A SessionFactory is set up once for an application!
+        final ServiceRegistry serviceRegistry = new StandardServiceRegistryBuilder()
+                .applySettings(configuration.getProperties()).build();
+
+        try {
+            sessionFactory = configuration.buildSessionFactory(serviceRegistry);
         }catch (Exception e) {
             e.printStackTrace();
             // The registry would be destroyed by the SessionFactory, but we had trouble building the SessionFactory so destroy it manually.
-            StandardServiceRegistryBuilder.destroy(registry);
+            StandardServiceRegistryBuilder.destroy(serviceRegistry);
             throw new Exception(e);
         }
     }
