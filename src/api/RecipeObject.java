@@ -1,10 +1,7 @@
-package sample;
+package api;
 
-
-import javafx.scene.control.CheckBox;
 
 import javax.swing.*;
-import javax.swing.border.TitledBorder;
 import java.awt.*;
 
 /**
