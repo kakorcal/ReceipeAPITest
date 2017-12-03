@@ -1,6 +1,12 @@
 package sample;
 
 
+import javafx.scene.control.CheckBox;
+
+import javax.swing.*;
+import javax.swing.border.TitledBorder;
+import java.awt.*;
+
 /**
  * Name: Dustin Summers
  * Date: 11/06/2017
@@ -9,6 +15,7 @@ package sample;
 public class RecipeObject {
 
     private String recipeTitle, recipeURL, recipeID, recipeImageURL;
+    private JCheckBox checkBox;
 
     /**
      * Constructor for Recipe Object
@@ -22,6 +29,22 @@ public class RecipeObject {
         this.recipeID = recipeID;
         this.recipeURL = recipeURL;
         this.recipeImageURL = recipeImageURL;
+        this.checkBox = new JCheckBox();
+    }
+
+    public JPanel getRecipeJPanelObject(){
+
+        JPanel mainPanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
+
+        mainPanel.setBorder(BorderFactory.createLineBorder(Color.BLACK));
+        mainPanel.add(checkBox);
+        mainPanel.add(new JLabel(recipeTitle));
+
+        return mainPanel;
+    }
+
+    public boolean isCheckBoxChecked(){
+        return checkBox.isSelected();
     }
 
     public String getRecipeTitle() {

@@ -17,8 +17,8 @@ public class RecipeFinderMain extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception{
-        Parent root = FXMLLoader.load(getClass().getResource("recipeFinder.fxml"));
-        primaryStage.setTitle("Hello World");
+        Parent root = FXMLLoader.load(getClass().getResource("recipeChooser.fxml"));
+        primaryStage.setTitle("Restaurant Inventory");
         primaryStage.setScene(new Scene(root));
         primaryStage.show();
     }

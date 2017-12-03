@@ -21,6 +21,8 @@ import java.util.ArrayList;
  */
 public class RecipesQuery {
 
+    Message message = new Message();
+
     /**
      * Main method that extracts/parses the JSON Query and returns an array list with the results
      * @param requestUrl String to be converted to URL that was generated in the previous Class
@@ -35,7 +37,7 @@ public class RecipesQuery {
             //Make request to website and pull in the resulting JSON
             jsonResponse = makeHttpRequest(url);
 
-            //Assign Overall JSON Object (for details on the returned JSON, view JSON Parser with given URL
+            //Assign Overall JSON Object (for details on the returned JSON, view JSON Parser with given URL)
             JSONObject recipeResponses = new JSONObject(jsonResponse);
 
             //Assign JSON Array, which contains all recipes
@@ -70,6 +72,23 @@ public class RecipesQuery {
 
         //Return our ArrayList of custom Recipe Objects
         return recipes;
+    }
+
+    public static void extractDirections(String requestUrl){
+        URL url = createUrl(requestUrl);
+        String jsonResponse = null;
+        try{
+            //Make request to website and pull in the result JSON
+            jsonResponse = makeHttpRequest(url);
+
+            //Assign overall JSON Object (for details on teh returned JSON, view JSON Parser with given URL)
+            JSONObject directionsREsponse = new JSONObject(jsonResponse);
+
+
+
+        } catch (JSONException | IOException e){
+            e.printStackTrace();
+        }
     }
 
     /**

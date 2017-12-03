@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+
+<BorderPane fx:id="borderPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.RecipeFinderController">
+   <bottom>
+      <HBox maxWidth="-Infinity" minWidth="-Infinity" prefHeight="65.0" prefWidth="346.0" BorderPane.alignment="CENTER">
+         <children>
+            <Button fx:id="findRecipesButton" alignment="CENTER" contentDisplay="CENTER" layoutX="10.0" layoutY="30.0" mnemonicParsing="false" onAction="#findRecipes" snapToPixel="false" text="Find Recipes">
+               <HBox.margin>
+                  <Insets right="10.0" />
+               </HBox.margin>
+            </Button>
+            <Button fx:id="getDirectionsButton" alignment="CENTER" contentDisplay="CENTER" layoutX="10.0" mnemonicParsing="false" onAction="#getDirections" snapToPixel="false" text="Get Directions">
+               <HBox.margin>
+                  <Insets bottom="20.0" right="10.0" />
+               </HBox.margin></Button>
+            <Button fx:id="generateMenuButton" contentDisplay="CENTER" mnemonicParsing="false" onAction="#generateMenu" text="Generate Menu" textAlignment="CENTER">
+               <HBox.margin>
+                  <Insets bottom="20.0" right="10.0" />
+               </HBox.margin>
+            </Button>
+         </children>
+         <BorderPane.margin>
+            <Insets bottom="10.0" top="10.0" />
+         </BorderPane.margin>
+         <padding>
+            <Insets top="20.0" />
+         </padding>
+      </HBox>
+   </bottom>
+   <center>
+      <Pane fx:id="recipePane" maxWidth="-Infinity" minWidth="-Infinity" prefHeight="330.0" prefWidth="350.0">
+         <BorderPane.margin>
+            <Insets bottom="10.0" top="10.0" />
+         </BorderPane.margin>
+      </Pane>
+   </center>
+</BorderPane>
