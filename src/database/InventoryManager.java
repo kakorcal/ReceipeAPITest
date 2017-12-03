@@ -20,23 +20,26 @@ import org.hibernate.service.ServiceRegistry;
  *
  */
 
-/*
-* PLEASE READ: in order to connect to the local database, please follow the steps below
-*
-* 1. login to mysql through the terminal
-*
-* 2. open the schema directory and copy/paste the database.sql and inventory.sql into the mysql terminal
-*
-* 3. create a hibernate.properties file in the same directory as hibernate.config.xml
-* and define the USERNAME, PASSWORD, AND DATABASE_NAME parameters:
-*
-* hibernate.connection.driver_class=com.mysql.jdbc.Driver
-* hibernate.connection.url=jdbc:mysql://localhost:3306/DATABASE_NAME
-* hibernate.connection.username=USERNAME
-* hibernate.connection.password=PASSWORD
-*
-* 4. the connection is successful if the GUI appears with no errorss
-* */
+/**
+ * PLEASE READ: in order to connect to the local database, please follow the steps below
+ *
+ * 1. login to mysql through the terminal
+ *
+ * 2. open the schema directory and copy/paste the database.sql and inventory.sql into the mysql terminal
+ *
+ * 3. create a hibernate.properties file in the same directory as hibernate.config.xml
+ * and define the USERNAME, PASSWORD, AND DATABASE_NAME parameters:
+ *
+ * hibernate.connection.driver_class=com.mysql.jdbc.Driver
+ * hibernate.connection.url=jdbc:mysql://localhost:3306/DATABASE_NAME
+ * hibernate.connection.username=USERNAME
+ * hibernate.connection.password=PASSWORD
+ *
+ * 4. Please do not check the hibernate.properties file into github as it contains private info.
+ * I added this into the .gitignore so it should be fine but I just wanted to give a heads up.
+ *
+ * 5. the connection is successful if the GUI appears with no errors
+ * */
 public class InventoryManager {
 
     private SessionFactory sessionFactory;
