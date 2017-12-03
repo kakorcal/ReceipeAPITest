@@ -1,0 +1,10 @@
+// This file is just for gathering all the resources used so its easier to refer back to them
+// Feel free to add more links
+
+hibernate
+https://docs.jboss.org/hibernate/orm/current/quickstart/html_single/
+https://www.youtube.com/watch?v=jk5PWO6fNuo&t=3005s
+
+intellij
+https://stackoverflow.com/questions/1051640/correct-way-to-add-external-jars-lib-jar-to-an-intellij-idea-project
+https://stackoverflow.com/questions/7065402/how-to-add-external-library-in-intellij-idea
