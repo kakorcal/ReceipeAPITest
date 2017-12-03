@@ -14,6 +14,15 @@ import java.util.List;
 
 import javax.swing.*;
 
+
+/**
+ * Name: Kenneth Korcal
+ * Date: 12/03/2017
+ * Description:
+ *
+ * GUI for applying Create, Read, Update, Delete, and List operations on Inventory table
+ *
+ */
 public class App extends JFrame {
     private InventoryManager manager = null;
 

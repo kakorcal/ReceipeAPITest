@@ -1,1 +1,1 @@
-CREATE DATABASE Restaurant_Inventory;
+CREATE DATABASE restaurant_inventory_recipe;

@@ -5,14 +5,38 @@ import java.util.List;
 import java.util.Properties;
 
 import org.hibernate.SessionFactory;
-//import org.hibernate.boot.MetadataSources;
-//import org.hibernate.boot.registry.StandardServiceRegistry;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.Session;
 import org.hibernate.cfg.Configuration;
 import org.hibernate.query.Query;
 import org.hibernate.service.ServiceRegistry;
 
+/**
+ * Name: Kenneth Korcal
+ * Date: 12/03/2017
+ * Description:
+ *
+ * Loads environment variables, sets them to hibernate config file, creates hibernate session
+ *
+ */
+
+/*
+* PLEASE READ: in order to connect to the local database, please follow the steps below
+*
+* 1. login to mysql through the terminal
+*
+* 2. open the schema directory and copy/paste the database.sql and inventory.sql into the mysql terminal
+*
+* 3. create a hibernate.properties file in the same directory as hibernate.config.xml
+* and define the USERNAME, PASSWORD, AND DATABASE_NAME parameters:
+*
+* hibernate.connection.driver_class=com.mysql.jdbc.Driver
+* hibernate.connection.url=jdbc:mysql://localhost:3306/DATABASE_NAME
+* hibernate.connection.username=USERNAME
+* hibernate.connection.password=PASSWORD
+*
+* 4. the connection is successful if the GUI appears with no errorss
+* */
 public class InventoryManager {
 
     private SessionFactory sessionFactory;
@@ -42,7 +66,9 @@ public class InventoryManager {
                 .applySettings(configuration.getProperties()).build();
 
         try {
-            sessionFactory = configuration.buildSessionFactory(serviceRegistry);
+            sessionFactory = configuration
+                    .addAnnotatedClass(Inventory.class)
+                    .buildSessionFactory(serviceRegistry);
         }catch (Exception e) {
             e.printStackTrace();
             // The registry would be destroyed by the SessionFactory, but we had trouble building the SessionFactory so destroy it manually.

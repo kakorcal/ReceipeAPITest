@@ -12,7 +12,7 @@
 
         <property name="hibernate.show_sql">true</property>
 
-        <!-- add classes to map from here -->
-        <mapping class="database.Inventory" />
+        <!--TODO: find out why the mapping does not work when using service registry-->
+        <!--<mapping class="database.Inventory" />-->
     </session-factory>
 </hibernate-configuration>

@@ -6,6 +6,15 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+/**
+ * Name: Kenneth Korcal
+ * Date: 12/03/2017
+ * Description:
+ *
+ * Inventory definition. Maps MySQL table to Java object
+ *
+ */
+
 @Entity
 @Table(name = "inventory") // maps fields to mysql table columns
 public class Inventory {
