@@ -63,11 +63,11 @@ public class RecipeFinderController {
 
             //Do a standard internet query to determine if we have network access.
             //This essentially sends a "ping" request to the site given
-            if (!address.isReachable(200)) {
-                System.out.println("No Network Access!");
-                message.showMessage("No Network Access", "No Network Access", "We don't have internet!", Alert.AlertType.ERROR);
-                return;
-            }
+//            if (!address.isReachable(200)) {
+//                System.out.println("No Network Access!");
+//                message.showMessage("No Network Access", "No Network Access", "We don't have internet!", Alert.AlertType.ERROR);
+//                return;
+//            }
                 System.out.println("Passing in RecipeURL: " + recipeURL);
 
                 //Extract Recipes from Given URL and create ArrayList of all Recipes
